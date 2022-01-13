@@ -1,5 +1,4 @@
 const { Message } = require('discord.js');
-const config = require('../config.json');
 const SGClient = require('../structures/SGClient');
 
 module.exports.info = {
@@ -21,7 +20,6 @@ module.exports.run = async (Bot, message) => {
     let args = message.content.slice(Bot.prefix.length).trim().split(/ +/g);
     let cmd = args.shift().toLowerCase(); // get the command name.
     let command = Bot.commands.get(cmd) || Bot.aliases.get(cmd); // find command by the name.
-    
     if(!command) return; // check if no commands arefound.
 
     try { // run the code in a try-catch block.

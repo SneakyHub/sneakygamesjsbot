@@ -1,5 +1,3 @@
-const { fips } = require('crypto');
-const Discord = require('discord.js')
 const fs = require('fs')
 
 module.exports.info = {
@@ -23,6 +21,7 @@ module.exports.run = Bot => {
           let props = require(`../commands/${fo}/${fi}`); // get the functions.
           var data = {} // create data variable
 
+          data = props.info.name
           data.description = props.info.description || '' // set the description or empty.
           data.aliases = props.info.aliases || [] // set the aliases or empty array.
           data.category = props.info.category || 'none' // set the category or none.
