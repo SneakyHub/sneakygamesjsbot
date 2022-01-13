@@ -21,8 +21,10 @@ module.exports.run = async (Bot, message) => {
 
     let Success  = new Discord.MessageEmbed()
     .setTitle('Pong!')
+    .setDescription('Pinged successfully') 
     .setAuthor({ name: message.author.username, iconURL: message.author.displayAvatarURL()})
-    .setDescription(`**Websocket heartbeat**: ${Bot.ws.ping}ms\n**Latency**: ${Reply.createdTimestamp - message.createdTimestamp}ms`)
+    .addField('Websocket heartbeat', `${Bot.ws.ping}ms`)
+    .addField('Latency', `${Reply.createdTimestamp - message.createdTimestamp}ms`)
     .setColor(config.colors.success)
 
     Reply.edit({embeds: [Success]})

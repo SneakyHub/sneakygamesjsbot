@@ -52,5 +52,4 @@ module.exports.formatNumber = async (number) => {
     }
     await format()
     return number + info.suffix
-
 }
