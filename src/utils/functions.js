@@ -1,3 +1,5 @@
+const { GuildMember } = require("discord.js");
+
 module.exports.info = {
     enabled: false
     /*
@@ -7,11 +9,17 @@ module.exports.info = {
     */
 }
 
+/**
+ * 
+ * @param {GuildMember} user 
+ * @param {import("discord.js").PermissionResolvable} perm 
+ * @returns 
+ */
 module.exports.checkPerms = (user, perm) => {
     if (!perm) return console.warn('Warn │ CheckPerms function triggerd without specifying a permission');
     if (!user) return console.warn('Warn │ CheckPerms function triggerd without specifying a user');
     if (!user.guild) return console.warn('Warn │ CheckPerms function expected a guildMember');
-    return user.hasPermission(perm)
+    return user.permissions.has(perm)
 }
 
 module.exports.formatNumber = async (number) => {

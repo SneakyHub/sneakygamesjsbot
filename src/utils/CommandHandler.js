@@ -8,7 +8,7 @@ module.exports.info = {
 
 module.exports.run = Bot => {
 
-fs.readdir("./commands/", (err, folders) => {
+fs.readdir("./src/commands/", (err, folders) => {
     Bot.commands = new Discord.Collection();
     Bot.aliases = new Discord.Collection();
 
@@ -16,7 +16,7 @@ fs.readdir("./commands/", (err, folders) => {
     
 
     folders.forEach((fo, i) => {
-      fs.readdir(`./commands/${fo}`, (err, files) => {
+      fs.readdir(`./src/commands/${fo}`, (err, files) => {
 
         let jsfiles = files.filter(f => f.split(".").pop() === "js"); 
         if (jsfiles.length <= 0) return console.warn(`Warn │ No commands have been found in folder ${fo}`);
@@ -35,7 +35,7 @@ fs.readdir("./commands/", (err, folders) => {
 
 
           props.info.aliases.forEach(alias =>{
-            if(!Bot.aliases.get(alias)) Bot.aliases.set(alias, props.info.name) // ← Register aliases if they don't exist already
+            if(!Bot.aliases.get(alias)) Bot.aliases.set(alias, props) // ← Register aliases if they don't exist already
           })
         })
       })
