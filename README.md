@@ -14,7 +14,7 @@ Please, when making updates, remember to list any npm modules that you add. This
    - Command files will now be stored in category folders for organization purposes.
    - The 'category' atribute has been added to the command handler, it can now be used in commands like a command / category list.
 2. Added the 'functions' file in src/utils
-   - This file will contain useful functions that can be used in multiple files.
+      - This file will contain useful functions that can be used in multiple files.
    - formatNumber function added
      - This function will format any number as a quantity. Examples: 1.000 -> 1k │ 1.000.000 -> 1M │ etc.
    - checkPerms function added
