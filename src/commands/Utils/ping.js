@@ -9,27 +9,30 @@ module.exports.info = {
 }
 
 module.exports.run = async (Bot, message) => {
-    let Loading = new Discord.MessageEmbed()
-    .setTitle('Pinging websocket')
-    .setDescription('Please wait...') 
+    let Loading = new Discord.MessageEmbed() // create embed.
+    .setTitle('Pinging websocket') // set title
+    .setDescription('Please wait...')  // set description
+     // set author
     .setAuthor({ name: message.author.username, iconURL: message.author.displayAvatarURL({
         dynamic: true,
         format: 'png'
     })})
-    .setColor(config.colors.info)
+    .setColor(config.colors.info) // set color
 
-    let Reply = await message.reply({embeds: [Loading]})
+    let Reply = await message.reply({embeds: [Loading]}); // reply with the embed and save it to variable to use it later...
 
-    await(Bot.ws.ping)
+    await(Bot.ws.ping); // idk what's this so ill let it here.
 
-    let Success  = new Discord.MessageEmbed()
-    .setTitle('Pong!')
+    let Success = new Discord.MessageEmbed() // create another embed.
+    .setTitle('Pong!') // set title.
+    // set author
     .setAuthor({ name: message.author.username, iconURL: message.author.displayAvatarURL({
         dynamic: true,
         format: 'png'
     })})
+    // set description
     .setDescription(`**Websocket heartbeat**: ${Bot.ws.ping}ms\n**Latency**: ${Reply.createdTimestamp - message.createdTimestamp}ms`)
-    .setColor(config.colors.success)
+    .setColor(config.colors.success) // set color
 
-    Reply.edit({embeds: [Success]})
+    Reply.edit({embeds: [Success]}) // reply with embed.
 }

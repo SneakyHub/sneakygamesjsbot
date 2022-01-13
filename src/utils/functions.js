@@ -5,7 +5,7 @@ module.exports.info = {
     /*
     DO NOT CHANGE, the functions file isnt't a normal file, it does not need to be triggerd on startup, doing so would crash the bot. 
     Thanks,
-     - Creper92YT
+     - Creper92YT, Contributor of SneakyGames Bot.
     */
 }
 
