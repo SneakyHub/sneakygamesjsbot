@@ -1,7 +1,4 @@
 {
-    "prefixes": ["sg!", "sg! ", "<@! BOT ID HERE >", "<@! BOT ID HERE > "],
-    "intents": 1791,
-    "token": " BOT TOKEN HERE ",
     "colors": {
         "success": "#01c407",
         "info": "#05e2f2",

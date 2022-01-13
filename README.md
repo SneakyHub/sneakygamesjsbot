@@ -20,3 +20,5 @@ Please, when making updates, remember to list any npm modules that you add. This
      - This function will format any number as a quantity. Examples: 1.000 -> 1k │ 1.000.000 -> 1M │ etc.
    - checkPerms function added
      - This function will check if a user has a specific permission.
+
+3. Added 'help' command, styled the files and added comments for new contributors.

@@ -1,17 +1,25 @@
+const { GuildMember } = require("discord.js");
+
 module.exports.info = {
     enabled: false
     /*
     DO NOT CHANGE, the functions file isnt't a normal file, it does not need to be triggerd on startup, doing so would crash the bot. 
     Thanks,
-     - Creper92YT
+     - Creper92YT, Contributor of SneakyGames Bot.
     */
 }
 
+/**
+ * 
+ * @param {GuildMember} user 
+ * @param {import("discord.js").PermissionResolvable} perm 
+ * @returns 
+ */
 module.exports.checkPerms = (user, perm) => {
     if (!perm) return console.warn('Warn │ CheckPerms function triggerd without specifying a permission');
     if (!user) return console.warn('Warn │ CheckPerms function triggerd without specifying a user');
-    if (!user.joinedAt) return console.warn('Warn │ CheckPerms function expected a guildMember');
-    return user.hasPermission(perm)
+    if (!user.guild) return console.warn('Warn │ CheckPerms function expected a guildMember');
+    return user.permissions.has(perm)
 }
 
 module.exports.formatNumber = async (number) => {
@@ -44,5 +52,4 @@ module.exports.formatNumber = async (number) => {
     }
     await format()
     return number + info.suffix
-
 }
