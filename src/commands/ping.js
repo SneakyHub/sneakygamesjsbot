@@ -11,7 +11,7 @@ module.exports.run = async (Bot, message) => {
     let Loading = new Discord.MessageEmbed()
     .setTitle('Pinging websocket')
     .setDescription('Please wait...') 
-    .setAuthor(message.author.username, message.author.displayAvatarURL(), null)
+    .setAuthor({ name: message.author.username, iconURL: message.author.displayAvatarURL()})
     .setColor(config.colors.info)
 
     let Reply = await message.reply({embeds: [Loading]})
@@ -21,7 +21,7 @@ module.exports.run = async (Bot, message) => {
     let Success  = new Discord.MessageEmbed()
     .setTitle('Pong!')
     .setDescription('Pinged successfully') 
-    .setAuthor(message.author.username, message.author.displayAvatarURL(), null)
+    .setAuthor({ name: message.author.username, iconURL: message.author.displayAvatarURL()})
     .addField('Websocket heartbeat', `${Bot.ws.ping}ms`)
     .addField('Latency', `${Reply.createdTimestamp - message.createdTimestamp}ms`)
     .setColor(config.colors.success)
