@@ -1,0 +1,23 @@
+{
+  "name": "sneakygames-bot",
+  "version": "0.1.5",
+  "description": "Discord.js bot for Sneaky's SneakyGames server.",
+  "main": "src/index.js",
+  "scripts": {
+    "run": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sneakyhub/sneakygamesjsbot.git"
+  },
+  "keywords": [
+    "Sneaky",
+    "SneakyGames"
+  ],
+  "author": "See contributors on repo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sneakyhub/sneakygamesjsbot/issues"
+  },
+  "homepage": "https://github.com/sneakyhub/sneakygamesjsbot#readme"
+}
