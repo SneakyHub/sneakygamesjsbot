@@ -17,9 +17,13 @@ module.exports.run = async (Bot, message) => {
       if(command.startsWith(prefix)) return hasPrefix = prefix; // Support multiple prefixes
     })
   
-    if(!hasPrefix) return console.warn(message.content);
+    if(!hasPrefix) return;
   
-    let cmd = Bot.commands.get(command.slice(hasPrefix.length)) || Bot.aliases.get(command.slice(hasPrefix.length)); // Find command using command name or alias
-  
-    if (cmd) cmd.run(Bot, message, args)
+    let cmd = Bot.commands.get(command.slice(hasPrefix.length)); // Find command
+    if(!cmd) { 
+    let alias = Bot.aliases.get(command.slice(hasPrefix.length))
+    cmd = Bot.commands.get(alias)
+    }
+
+    if(cmd) cmd.run(Bot, message, args)
 }
