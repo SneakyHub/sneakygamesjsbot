@@ -9,11 +9,13 @@ module.exports = class SGClient extends Client { // create the base class.
             Intents.FLAGS.GUILD_MEMBERS,
             Intents.FLAGS.GUILD_MESSAGES
         ]});
+        this.wait = require("timers/promises").setTimeout;
         this.prefix = 'sg!'; // set the prefix
         this.owners = ['746113176885657701']; // set the owners (Sneaky)
         this.commands = new LimitedCollection(); // create 'commands' collection.
         this.aliases = new LimitedCollection(); // create 'aliases' collection.
         this.events = new LimitedCollection(); // create 'events' collection.
+        this.invites = new Map(); // create 'invites' map.
     }
 
     start(token) { // create 'start' function
