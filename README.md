@@ -7,6 +7,11 @@ Please, when making updates, remember to list any npm modules that you add. This
  - Discord.js (v13)
  - fs (newest)
 
+# Current Features:
+
+ - Purge (command)
+ - example
+
 
 ## Update log:
 1. Updated and fixed command handler
