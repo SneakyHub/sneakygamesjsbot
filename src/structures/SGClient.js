@@ -1,5 +1,7 @@
 const { Client, LimitedCollection, Intents } = require("discord.js");
 const { readdir } = require("fs");
+const ReminderManager = require("./ReminderManager");
+const { Database } = require("quickmongo");
 
 module.exports = class SGClient extends Client { // create the base class.
 
@@ -16,6 +18,18 @@ module.exports = class SGClient extends Client { // create the base class.
         this.aliases = new LimitedCollection(); // create 'aliases' collection.
         this.events = new LimitedCollection(); // create 'events' collection.
         this.invites = new Map(); // create 'invites' map.
+
+        this.reminderManager = new ReminderManager(this); // initialize Reminder Manager.
+
+        this.db = new Database(process.env.MONGODB_URL); // initialize the database.
+        this.db.on('ready', async () => { // 'ready' event.
+            console.log('Info | Connnected to Mongo Database.');
+            // check if there's no collection with 'reminders', if not, create it.
+            if(!(await this.db.get('reminders'))) await this.db.set('reminders', {}, -1);
+
+        });
+        // connect to database:
+        this.db.connect();
     }
 
     start(token) { // create 'start' function
