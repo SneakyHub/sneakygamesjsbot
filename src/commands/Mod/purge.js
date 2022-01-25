@@ -18,6 +18,9 @@ module.exports.info = {
  */
 module.exports.run = async (Bot, message, args) => {
 
+    if(!message.member.permissions.has('MANAGE_MESSAGES'))
+        return message.reply('You have no permission to delete messages!');
+
     let amount = args[0];
     if(!amount) return message.reply('Please provide an amount of messages!');
     if(isNaN(amount)) return message.reply('Must be a number!');
