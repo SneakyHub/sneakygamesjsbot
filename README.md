@@ -24,3 +24,5 @@ Please, when making updates, remember to list any npm modules that you add. This
 3. Added 'help' command, styled the files and added comments for new contributors.
 
 4. Added 'purge' command, added welcome channel with invite count.
+
+5. Added reminders.
