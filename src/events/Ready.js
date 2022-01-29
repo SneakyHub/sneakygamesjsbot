@@ -13,11 +13,11 @@ module.exports.info = {
 module.exports.run = async (Bot) => {
     console.info("Info │ Bot ready, Logged in as", Bot.user.tag); // send in console that the bot is ready.
     Bot.user.setActivity('over SneakyGames', { type: 'WATCHING' }); // set the activity to "Watching over SneakyGames"
-
-
-    await Bot.reminderManager.loadReminders();
-
+    
+    
     await Bot.wait(1000);
+    await Bot.srManager.loadSelfRoles();
+
     Bot.guilds.cache.forEach(async (guild) => {
         // Fetch all Guild Invites
         const firstInvites = await guild.invites.fetch();
