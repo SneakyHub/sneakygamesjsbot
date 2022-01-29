@@ -21,6 +21,9 @@ module.exports.info = {
  */
 module.exports.run = async (Bot, message, args) => {
 
+    // check if argument 1 isn't provided:
+    if(!args[0]) return message.reply('Please provide an argument! (add/remove/list)');
+
     if(args[0] === 'add') { // add an reminder
         let when = args[1]; // get the timer
         // check if there's no arguments.
@@ -90,7 +93,7 @@ module.exports.run = async (Bot, message, args) => {
             })
         reminders.forEach(reminder => { // loop through all the reminders.
             // add a field to the embed.
-            em.addField(reminder.title, `**ID**: ${reminder.id}\n**Remind** <t:${reminder.remindAt}:R>\n**Started At:** ${new Date(Math.floor(reminder.createdAt*1000))}`);
+            em.addField(reminder.title, `**ID**: ${reminder.id}\n**Remind** <t:${reminder.remindAt}:R>\n**Started** <t:${reminder.createdAt}:R>`);
         })
         message.reply({ // reply with the embed.
             embeds: [em]

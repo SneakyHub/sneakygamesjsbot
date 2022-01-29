@@ -1,5 +1,8 @@
-const SGClient = require('./structures/SGClient');
+require('dotenv').config();
+const { ShardingManager } = require('discord.js');
 
-require('dotenv').config(); // load .env file
+const manager = new ShardingManager('./src/main.js', { token: process.env.token });
 
-new SGClient().start(process.env.token); // start the bot with the specified token.
+manager.on('shardCreate', shard => console.log(`Launched shard ${shard.id}`));
+
+manager.spawn();
