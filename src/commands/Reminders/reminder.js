@@ -93,7 +93,7 @@ module.exports.run = async (Bot, message, args) => {
             })
         reminders.forEach(reminder => { // loop through all the reminders.
             // add a field to the embed.
-            em.addField(reminder.title, `**ID**: ${reminder.id}\n**Remind** <t:${reminder.remindAt}:R>\n**Started At:** ${new Date(Math.floor(reminder.createdAt*1000))}`);
+            em.addField(reminder.title, `**ID**: ${reminder.id}\n**Remind** <t:${reminder.remindAt}:R>\n**Started** <t:${reminder.createdAt}:R>`);
         })
         message.reply({ // reply with the embed.
             embeds: [em]
