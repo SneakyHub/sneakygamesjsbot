@@ -21,6 +21,9 @@ module.exports.info = {
  */
 module.exports.run = async (Bot, message, args) => {
 
+    // check if argument 1 isn't provided:
+    if(!args[0]) return message.reply('Please provide an argument! (add/remove/list)');
+
     if(args[0] === 'add') { // add an reminder
         let when = args[1]; // get the timer
         // check if there's no arguments.
