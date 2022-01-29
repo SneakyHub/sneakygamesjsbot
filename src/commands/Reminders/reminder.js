@@ -8,7 +8,7 @@ require('moment-duration-format');
 module.exports.info = {
     name: "reminder",
     description: "Add/remove/list reminders.",
-    category: "reminders",
+    category: "Reminders",
     aliases: []
 }
 

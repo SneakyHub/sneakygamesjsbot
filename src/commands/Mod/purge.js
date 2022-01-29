@@ -5,7 +5,7 @@ const SGClient = require('../../structures/SGClient');
 module.exports.info = {
     name: "purge",
     description: "Purge an amount of messages in the current channel.",
-    category: "mod",
+    category: "Mod",
     aliases: ["clear", "delete"],
 }
 
@@ -32,6 +32,6 @@ module.exports.run = async (Bot, message, args) => {
         message.channel.bulkDelete(amount).then(msgs => {
             message.channel.send(`Deleted an amount of **${msgs.size}** messages.`);
         })
-    })
+    }).catch((r) => message.reply('Cannot delete messages older than 2 weeks!'));
 
 }

@@ -8,9 +8,13 @@ module.exports = class ReminderManager {
      */
     constructor(client) {
         this.client = client; // initialize client property.
+        this.loadReminders();
     }
 
     async loadReminders() { // function where all the reminders are being loaded.
+        // check if there's no collection with 'reminders', if not, create it.
+        if(!(await this.client.db.get('reminders'))) await this.client.db.set('reminders', {}, -1);
+        
         let users = await this.getUsers(); // get the users
         for(let userId in users) { // loop through all the users
             users[userId].forEach(reminder => { // loop through all the reminders of the user
