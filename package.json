@@ -1,12 +1,8 @@
 {
-  "name": "Sneaky-Bot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "bot.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "control-panel-api-wrapper": "^1.1.1",
+    "discord.js": "^13.8.1",
+    "fs": "^0.0.1-security",
+    "request": "^2.88.2"
+  }
 }
