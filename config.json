@@ -1,6 +1,6 @@
 {
-    "token": "OTk2Mzk4NjUwMDUxNzk2OTkz.GVnYAT.Jyw2jPe9H89VFHmI1uZfA0dUOxzxab_0JXUJr8",
-    "prefix": "!",
-    "dashboardurl": "",
-    "dashboardtoken": ""
+    "token": "Your-Bot-Token",
+    "prefix": "sh!",
+    "dashboardurl": "https://dash.sneakyhub.com",
+    "dashboardtoken": "Your-Dash-Token"
 }
